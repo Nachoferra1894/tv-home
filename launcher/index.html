@@ -61,8 +61,7 @@ function paint() {
   for (var i = 0; i < t.length; i++) t[i].className = "tile " + APPS[i].cls + (i === focus ? " focus" : "");
 }
 function launch(i) {
-  try { Hisense_StartApp(APPS[i].cmd); }
-  catch (e) { location.href = "http://192.168.1.11:8000/report-fallback?cmd=" + encodeURIComponent(APPS[i].cmd); }
+  try { Hisense_StartApp(APPS[i].cmd); } catch (e) { }
 }
 function move(d) { focus = (focus + d + APPS.length) % APPS.length; paint(); }
 document.addEventListener("keydown", function (e) {
